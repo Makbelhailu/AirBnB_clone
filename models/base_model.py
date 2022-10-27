@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-from models import storage
+from models.engine.file_storage import FileStorage as storage
 
 class BaseModel():
     """BaseModel class defines common attr/mtds for other classes"""

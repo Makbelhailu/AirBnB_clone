@@ -6,7 +6,8 @@ import datetime
 
 from models.base_model import BaseModel
 
-class TestBaseModel(unitetest.TestCase):
+
+class TestBaseModel(unittest.TestCase):
     """Contains the actual tests"""
 
     def setUp(self):
@@ -29,7 +30,7 @@ class TestBaseModel(unitetest.TestCase):
         self.assertTrue(hasattr(self.base_model, "id"))
         self.assertTrue(hasattr(self.base_model1, "id"))
         self.assertNotEqual(self.base_model.id, self.base_model1.id)
-        
+
     def test_datetime(self):
         """datetime test"""
         self.assertTrue(hasattr(self.base_model, "created_at"))
@@ -52,5 +53,5 @@ class TestBaseModel(unitetest.TestCase):
             self.assertNotEqual(key, None)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()
