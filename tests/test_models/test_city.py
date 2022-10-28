@@ -1,43 +1,16 @@
 #!/usr/bin/python3
-"""
-Tests for the City model
-"""
-
-
+""" testing city """
 import unittest
-import datetime
-
+import pep8
 from models.city import City
-from models.state import State
 
+class City_testing(unittest.TestCase):
+    """ check BaseModel """
 
-class TestCity(unittest.TestCase):
-    """Test the city model"""
-
-    def setUp(self):
-        """Instances for testing"""
-        self.c1 = City()
-        self.c2 = City()
-
-    def test_instances(self):
-        """Check the instances and presence of attributes"""
-        self.assertIsInstance(self.c1, City)
-        self.assertIsInstance(self.c2, City)
-        self.assertTrue(hasattr(self.c1, "name"))
-        self.assertTrue(hasattr(self.c1, "state_id"))
-
-    def test_name(self):
-        """Test the name attribute"""
-        self.assertEqual(type(self.c1.name), str)
-        self.assertEqual(self.c1.name, "")
-        self.assertNotEqual(self.c1.name, None)
-
-    def test_state_id(self):
-        """Test the state_id attribute"""
-        self.assertNotEqual(self.c1.state_id, None)
-        self.assertEqual(type(self.c1.state_id), str)
-        self.assertEqual(self.c1.state_id, "")
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def testpep8(self):
+        """ testing codestyle """
+        pepstylecode = pep8.StyleGuide(quiet=True)
+        path_user = 'models/city.py'
+        result = pepstylecode.check_files([path_user])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")

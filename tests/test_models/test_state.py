@@ -1,32 +1,16 @@
 #!/usr/bin/python3
-"""
-Tests for the State Model
-"""
-
-
+""" testing State """
 import unittest
-import datetime
-
+import pep8
 from models.state import State
 
+class State_testing(unittest.TestCase):
+    """ check BaseModel """
 
-class TestState(unittest.TestCase):
-    """Test cases for the State model"""
-
-    def setUp(self):
-        """Create a few instances for testing"""
-        self.s1 = State()
-
-    def test_instances(self):
-        """Test if instances are created"""
-        self.assertTrue(isinstance(self.s1, State))
-
-    def test_name(self):
-        """Test the name attribute"""
-        self.assertNotEqual(self.s1.name, None)
-        self.assertEqual(type(self.s1.name), str)
-        self.assertEqual(self.s1.name, "")
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def testpep8(self):
+        """ testing codestyle """
+        pepstylecode = pep8.StyleGuide(quiet=True)
+        path_user = 'models/state.py'
+        result = pepstylecode.check_files([path_user])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")

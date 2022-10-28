@@ -1,56 +1,16 @@
 #!/usr/bin/python3
-"""
-Tests for the User Model
-"""
-
-
+""" testing User """
 import unittest
-import datetime
-
+import pep8
 from models.user import User
 
+class User_testing(unittest.TestCase):
+    """ check BaseModel """
 
-class TestUser(unittest.TestCase):
-    """Unittests for the User Model"""
-
-    def setUp(self):
-        """Let's create a few instances to test with"""
-        self.u1 = User()
-        self.u2 = User()
-
-    def test_instances(self):
-        """Test if instances are created"""
-        self.assertTrue(isinstance(self.u1, User))
-        self.assertTrue(isinstance(self.u2, User))
-        self.assertTrue(hasattr(self.u1, "email"))
-        self.assertTrue(hasattr(self.u1, "password"))
-        self.assertTrue(hasattr(self.u1, "first_name"))
-        self.assertTrue(hasattr(self.u1, "last_name"))
-
-    def test_email(self):
-        """Tests the email attribute"""
-        self.assertEqual(type(self.u1.email), str)
-        self.assertEqual(self.u1.email, "")
-        self.assertNotEqual(self.u1.email, None)
-
-    def test_password(self):
-        """Tests the password attribute"""
-        self.assertEqual(type(self.u1.password), str)
-        self.assertEqual(self.u1.password, "")
-        self.assertNotEqual(self.u1.password, None)
-
-    def test_first_name(self):
-        """Tests the first_name attribute"""
-        self.assertEqual(type(self.u1.first_name), str)
-        self.assertEqual(self.u1.first_name, "")
-        self.assertNotEqual(self.u1.first_name, None)
-
-    def test_last_name(self):
-        """Tests the last_name attribute"""
-        self.assertEqual(type(self.u1.last_name), str)
-        self.assertEqual(self.u1.last_name, "")
-        self.assertNotEqual(self.u1.last_name, None)
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def testpep8(self):
+        """ testing codestyle """
+        pepstylecode = pep8.StyleGuide(quiet=True)
+        path_user = 'models/user.py'
+        result = pepstylecode.check_files([path_user])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")

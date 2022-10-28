@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""
-Tests for the Review Model
-"""
-
-
+""" testing Review """
 import unittest
-import datetime
-
+import pep8
 from models.review import Review
 
+class Review_testing(unittest.TestCase):
+    """ check BaseModel """
 
-class TestReview(unittest.TestCase):
-    """To test the Reviews"""
+    def testpep8(self):
+        """ testing codestyle """
+        pepstylecode = pep8.StyleGuide(quiet=True)
+        path_user = 'models/review.py'
+        result = pepstylecode.check_files([path_user])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
