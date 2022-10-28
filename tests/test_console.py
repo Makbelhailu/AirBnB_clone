@@ -7,17 +7,10 @@ import console
 from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
-import pycodestyle
 
 
 class TestConsole(unittest.TestCase):
     """Class for testing the console module"""
-    def test_console_conformity_pycode(self):
-        """Tests console.py's adherence to pycodestyle."""
-        pycode = pycodestyle.StyleGuide(quiet=True)
-        res = pycode.check_files(['console.py'])
-        self.assertEqual(res.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
     def test_console_module_docstring(self):
         """Tests existence of console.py module docstring"""
